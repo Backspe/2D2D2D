@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Graphic version="2.0" viewHeight="200" viewWidth="200" ai:appVersion="16.0.0.682" ATE:version="1.0.0" flm:version="1.0.0" d:using="" xmlns="http://ns.adobe.com/fxg/2008" xmlns:ATE="http://ns.adobe.com/ate/2009" xmlns:ai="http://ns.adobe.com/ai/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" xmlns:flm="http://ns.adobe.com/flame/2008">
+  <Library/>
+  <Group blendMode="normal" d:layerType="page" d:pageHeight="200" d:pageWidth="200" d:type="layer" d:userLabel="대지 1">
+    <Group d:type="layer" d:userLabel="레이어 1">
+      <Path x="13.0605" y="24.708" winding="nonZero" ai:seqID="1" data="M86.9395 0 173.879 150.583 0 150.583 86.9395 0Z">
+        <fill>
+          <SolidColor color="#B5B5B6"/>
+        </fill>
+        <stroke>
+          <SolidColorStroke caps="none" joints="miter" miterLimit="10"/>
+        </stroke>
+      </Path>
+      <Ellipse x="92.5986" y="35.4741" width="14.8037" height="14.8037" ai:seqID="2">
+        <fill>
+          <SolidColor color="#E73119"/>
+        </fill>
+        <stroke>
+          <SolidColorStroke caps="none" joints="miter" miterLimit="10"/>
+        </stroke>
+      </Ellipse>
+    </Group>
+  </Group>
+  <Private/>
+</Graphic>
