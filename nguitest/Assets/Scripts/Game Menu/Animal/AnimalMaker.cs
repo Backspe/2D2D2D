@@ -2,43 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
-/*
-Comp_Coord<T>는 각각의 AnimalComponent가 있는 삼각형꼴 좌표평면상의 좌표와
-AnimalComponent 자체가 포함되어있다. 
-T에는 AnimalComponent를 넣으면 되고 다시 쓸때는 다운캐스팅해서 쓰면 된다.
-이를 저장하는 방법은 HashSet을 사용한 리스트로 작성하였다.
-*/
-
-public class Comp_Coord : System.IEquatable<Comp_Coord>{
-	private int X;
-	private int Y;//삼각형꼴 좌표평면 상에서의 좌표를 말한다 
-	public int x {
-		get{ return X; }
-		set{ X=x;}
-	}
-	public int y {
-		get{ return Y;}
-		set{ Y = y;}
-	}
-	public Comp_Coord (int _x,int _y){
-		this.X = _x;
-		this.Y = _y;
-	}
-
-	public bool Equals (Comp_Coord obj)//두개가 같은 좌표에 있는지 판별하는 메소드
-	{
-		return ((obj.x == this.x) && (obj.y == this.y));
-	}
-
-	public override int GetHashCode(){
-		return x.GetHashCode () ^ y.GetHashCode ();
-	}
-}
-
 public class Animal{
-	public HashSet<Comp_Coord> CompCoords; // 이 해시셋 안에 좌표가 놓여있음. 좌표 중복을 막기 위해 해시셋 이용
-	public Dictionary<Comp_Coord,AnimalComponents> CompList;//Comp_Coord에 따른 AnimalComponent를 넣는다.
+	public AnimalComponents[,] Comp_this;
+	//Animal이 가르키는 삼각형 리스트의 첫번째 삼각형
+	//일반적으로 Core가 된다
 
 	public float weightAll; // 각 부분의 무게와 내구도의 합
 	public float shieldAll;
@@ -50,19 +17,16 @@ public class Animal{
 	public Animal() : this(0,0){}
 
 	public Animal(double x, double y){
-		this.position_x = x;
-		this.position_y = y;
-		Core core = new Core (0,0);//초기엔 0,0좌표에 코어를 넣어준다. 
+		this.position_x=x;
+		this.position_y=y;
 
-		CompCoords= new HashSet<Comp_Coord>();
-		CompCoords.Add (new Comp_Coord(0,0));//해시셋에 좌표 넣음
-
-		CompList = new Dictionary<Comp_Coord, AnimalComponents> ();
-		CompList.Add (new Comp_Coord (0, 0), core);//딕셔너리에 초기 코어 좌표와 코어를 넣는다.
+		Comp_this = new AnimalComponents[1,1];
+		Array.Resize<AnimalComponents>(ref Comp_this, Comp_this.Length + 1);
+		Comp_this[0,1] = new Core(0,0);
 	}
 }
 
-public class AnimalComponents { // Core,Part,Body 등 생물체를 이루는 구성요소
+public class AnimalComponents { // 코어, 파츠, 바디 등 생물체를 이루는 구성요소
 	public GameObject prefab_comp;
 	//이 성분이 갖는 prefab (구성 요소의 그림이 들어간다.)
 
@@ -70,7 +34,7 @@ public class AnimalComponents { // Core,Part,Body 등 생물체를 이루는 구
 	public float shield;
 
 	public const double edge_len = 60.0; 
-	// 삼각형의 한변의 길이. position =(edge_len* 떨어진 삼각형의 좌표) 로 사용하기 위한 수이다.
+	// 삼각형의 한변의 길이, position에다 edge_len* 떨어진 삼각형의 좌표(비슷한거)로 넣음
 
 	public AnimalComponents nextComp_a;
 	// 위쪽으로부터 시계방향으로 a,b,c 부분의 변애 있는 요소를 말한다  
@@ -140,13 +104,13 @@ public class Body : AnimalComponents {
 public class AnimalMaker : MonoBehaviour {
 
 	void MakeAnimal(double x, double y, double rot, GameObject _newCore){
-		//Animal _newAn = new Animal(x,y);
-		//Debug.Log(((Core)_newAn.Comp_this).b_enabled);
+		Animal _newAn = new Animal(x,y);
+		Debug.Log(((Core)_newAn.Comp_this).b_enabled);
 		//Instantiate(_newCore,transform.position,transform.rotation);
 	}
 	void MakeTest(){
 		Animal _newAn = new Animal(0,0);
-		//Debug.Log(((Core)_newAn.Comp_this[0,0]).b_enabled);
+		Debug.Log(((Core)_newAn.Comp_this[0,0]).b_enabled);
 	}
 	void MakePart(double x, double y, double rot, GameObject _newPart){
 
