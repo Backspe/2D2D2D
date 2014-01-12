@@ -125,6 +125,8 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Scripts\Factory\ReturnButton.cs" />
+     <Compile Include="Assets\Scripts\Game Menu\Animal\AnimalConnect.cs" />
+     <Compile Include="Assets\Scripts\Game Menu\Animal\AnimalMaker.cs" />
      <Compile Include="Assets\Scripts\Game Menu\GameMenuGUI.cs" />
      <Compile Include="Assets\Scripts\Game Menu\MainFrame.cs" />
      <Compile Include="Assets\Scripts\Game Menu\MenuButton.cs" />
