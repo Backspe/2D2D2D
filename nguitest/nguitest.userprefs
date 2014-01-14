@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game Menu\Animal\AnimalMaker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game Menu\Animal\Animal.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game Menu\Animal\AnimalMaker.cs" Line="33" Column="1" />
-      <File FileName="Assets\Scripts\Game Menu\Animal\AnimalMaker.cs" Line="162" Column="1" />
+      <File FileName="Assets\Scripts\Game Menu\Animal\Animal.cs" Line="59" Column="29" />
+      <File FileName="Assets\Scripts\Game Menu\Animal\AnimalMaker.cs" Line="29" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
